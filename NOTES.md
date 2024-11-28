@@ -65,3 +65,28 @@ Are Larger pieces, that wrap around a particular section in the Layout
 - About
 - Products
 - Contact Form
+
+
+
+# Converting static HTML to JSX 
+
+`class` element attributes must be changed to `className`
+
+`<label for="">` must be changed to `<label htmlFor="">`
+
+self-closing tags like `<br>` or `<img>` must be changed to `<br />` or `<img />`
+
+
+
+`style` attributes must be converted from `str` value to `obj` and written in camelCase
+```tsx
+style={{ backgroundImage: "url()" }}
+```
+
+image paths should be imported (or use public assets)
+```tsx
+import imageName from './image/path.jpg'
+```
+if the background image is imported as a variable:
+```tsx
+style={{ backgroundImage: `url(${imageName})` }}

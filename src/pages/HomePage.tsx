@@ -1,4 +1,7 @@
 import React from 'react'
+import farmerCocoa1 from '../assets/farmer-cocoa1.jpg'
+import glamorCocoa2 from '../assets/glamor-cocoa2.jpg'
+import greenhouseCocoa1 from '../assets/greenhouse-cocoa1.jpg'
 
 const HomePage = () => {
   return (
@@ -8,9 +11,9 @@ const HomePage = () => {
       <section id="hero" className="hero">
 
         <div className="hero__slideshow">
-          <div className="hero__slide" style="background-image: url('assets/images/farmer-cocoa1.jpg')"></div>
-          <div className="hero__slide" style="background-image: url('assets/images/glamor-cocoa2.jpg')"></div>
-          <div className="hero__slide" style="background-image: url('assets/images/greenhouse-cocoa1.jpg')"></div>
+          <div className="hero__slide" style={{ backgroundImage: `url(${farmerCocoa1})` }}></div>
+          <div className="hero__slide" style={{ backgroundImage: `url(${glamorCocoa2})` }}></div>
+          <div className="hero__slide" style={{ backgroundImage: `url(${greenhouseCocoa1})` }}></div>
         </div>
 
         <div className="hero__overlay"></div>
@@ -173,7 +176,7 @@ const HomePage = () => {
           {/* <!-- Testimonial slides will be added here --> */}
         </div>
 
-        
+
       </section>
 
       {/* <!-- Products --> */}
@@ -321,17 +324,17 @@ const HomePage = () => {
               <div className="contact__info-item">
                 <i className="fas fa-map-marker-alt"></i>
                 <h3>Visit Us</h3>
-                <p>Jl. Raya Denpasar No. 123<br>Bali, Indonesia 80234</p>
+                <p>Jl. Raya Denpasar No. 123<br />Bali, Indonesia 80234</p>
               </div>
               <div className="contact__info-item">
                 <i className="fas fa-envelope"></i>
                 <h3>Email Us</h3>
-                <p>info@indonesiapremiumcacao.com<br>sales@indonesiapremiumcacao.com</p>
+                <p>info@indonesiapremiumcacao.com<br />sales@indonesiapremiumcacao.com</p>
               </div>
               <div className="contact__info-item">
                 <i className="fas fa-phone-alt"></i>
                 <h3>Call Us</h3>
-                <p>+62 361 123 4567<br>+62 812 3456 7890</p>
+                <p>+62 361 123 4567<br />+62 812 3456 7890</p>
               </div>
             </div>
 
