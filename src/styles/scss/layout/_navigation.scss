@@ -1,0 +1,149 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: $background-dark;
+    padding: $spacing-md 0;
+    transition: all $transition-base;
+    box-shadow: $shadow-sm;
+
+    &.scrolled {
+        & {
+            padding: $spacing-sm 0;
+            background: $background-dark;
+            box-shadow: $shadow-md;
+        }
+    }
+
+    &__container {
+        & {
+            @include container;
+            @include flex(row, space-between, center);
+        }
+    }
+
+    &__logo {
+        & {
+            font-family: $font-primary;
+            font-size: 1.5rem;
+            color: $light-text;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        span {
+            color: $accent-color;
+        }
+    }
+
+    &__menu {
+        & {
+            @include flex(row, flex-end, center);
+        }
+
+        &__list {
+            & {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                gap: $spacing-xl;
+            }
+            @include flex(row, flex-end, center);
+        }
+
+        @include respond-to-max(md) {
+            & {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: $background-dark;
+                padding: $spacing-md;
+                flex-direction: column;
+                gap: $spacing-md;
+            }
+
+            &.active {
+                display: flex;
+            }
+        }
+    }
+
+    &__item {
+        & {
+            position: relative;
+        }
+
+        a {
+            & {
+                color: $light-text;
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: 500;
+                padding: $spacing-xs $spacing-sm;
+                transition: color $transition-base;
+                display: block;
+            }
+
+            &:hover {
+                color: $accent-color;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: $spacing-sm;
+                width: 0;
+                height: 2px;
+                background-color: $accent-color;
+                transition: width $transition-base;
+            }
+
+            &:hover::after {
+                width: calc(100% - #{$spacing-sm * 2});
+            }
+        }
+
+        &.active {
+            a {
+                & {
+                    color: $accent-color;
+                }
+
+                &::after {
+                    width: calc(100% - #{$spacing-sm * 2});
+                }
+            }
+        }
+    }
+
+    &__toggle {
+        & {
+            display: none;
+            font-size: 1.5rem;
+            color: $light-text;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: $spacing-xs;
+            transition: color $transition-base;
+        }
+
+        &:hover {
+            color: $accent-color;
+        }
+
+        @include respond-to-max(md) {
+            & {
+                display: block;
+            }
+        }
+    }
+}

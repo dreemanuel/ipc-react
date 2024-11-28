@@ -1,0 +1,156 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use "sass:color";
+
+// Base button styles
+.btn {
+    & {
+        display: inline-block;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $border-radius-sm;
+        font-weight: 600;
+        text-align: center;
+        transition: all $transition-fast;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+    
+    // Primary button
+    &--primary {
+        & {
+            background-color: $primary-color;
+            color: $light-text;
+        }
+        
+        &:hover {
+            & {
+                background-color: color.adjust($primary-color, $lightness: -10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+            }
+        }
+        
+        &:active {
+            & {
+                transform: translateY(0);
+            }
+        }
+    }
+    
+    // Accent button (Primary CTA)
+    &--accent {
+        & {
+            background-color: $accent-color;
+            color: $primary-color;
+            border-color: $accent-color;
+        }
+        
+        &:hover {
+            & {
+                background-color: color.adjust($accent-color, $lightness: -10%);
+                border-color: color.adjust($accent-color, $lightness: -10%);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba($accent-color, 0.2);
+            }
+        }
+        
+        &:active {
+            & {
+                transform: translateY(0);
+            }
+        }
+    }
+    
+    // Secondary button
+    &--secondary {
+        & {
+            background-color: transparent;
+            color: $primary-color;
+            border-color: $primary-color;
+        }
+        
+        &:hover {
+            & {
+                background-color: $primary-color;
+                color: $light-text;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba($primary-color, 0.1);
+            }
+        }
+        
+        &:active {
+            & {
+                transform: translateY(0);
+            }
+        }
+
+        // Light variant
+        &-light {
+            & {
+                color: $light-text;
+                border-color: $light-text;
+            }
+            
+            &:hover {
+                & {
+                    background-color: $light-text;
+                    color: $primary-color;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba($light-text, 0.2);
+                }
+            }
+            
+            &:active {
+                & {
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+    
+    // Button sizes
+    &--small {
+        & {
+            padding: $spacing-xs $spacing-md;
+            font-size: 0.875rem;
+        }
+    }
+    
+    &--large {
+        & {
+            padding: $spacing-md $spacing-xl;
+            font-size: 1.125rem;
+        }
+    }
+    
+    // Full width button
+    &--full {
+        & {
+            width: 100%;
+            display: block;
+        }
+    }
+    
+    // Icon button
+    &--icon {
+        & {
+            display: inline-flex;
+            align-items: center;
+            gap: $spacing-sm;
+            
+            i, svg {
+                font-size: 1.2em;
+            }
+        }
+    }
+    
+    // Disabled state
+    &:disabled,
+    &--disabled {
+        & {
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+
+    &__slideshow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        animation: slideshow 18s infinite;
+
+        &:nth-child(1) {
+            animation-delay: 0s;
+        }
+        &:nth-child(2) {
+            animation-delay: 6s;
+        }
+        &:nth-child(3) {
+            animation-delay: 12s;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($primary-color, 0.7);
+        z-index: 1;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        padding-top: 25vh;
+        text-align: center;
+        color: $light-text;
+    }
+
+    &__title {
+        font-size: 3.5rem;
+        font-family: $font-primary;
+        margin-bottom: $spacing-lg;
+        line-height: 1.2;
+
+        @media (max-width: $breakpoint-md) {
+            font-size: 2.5rem;
+        }
+
+        span {
+            color: $accent-color;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.2rem;
+        font-family: $font-secondary;
+        max-width: 600px;
+        margin: 0 auto $spacing-xl;
+        line-height: 1.6;
+        opacity: 0.9;
+
+        @media (max-width: $breakpoint-md) {
+            font-size: 1.1rem;
+        }
+    }
+
+    &__cta {
+        display: flex;
+        gap: $spacing-md;
+        justify-content: center;
+
+        @media (max-width: $breakpoint-sm) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            min-width: 200px;
+        }
+    }
+}
+
+@keyframes slideshow {
+    0%, 28% {
+        opacity: 1;
+    }
+    33%, 100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,132 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.about {
+    padding: $spacing-xxl 0;
+    background-color: $background-light;
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing-xxl;
+
+        .section-title {
+            color: $primary-color;
+            margin-bottom: $spacing-md;
+            font-family: $font-primary;
+            font-size: 2.5rem;
+        }
+
+        .section-subtitle {
+            color: $secondary-color;
+            font-family: $font-secondary;
+            font-size: 1.2rem;
+            margin-top: $spacing-md;
+        }
+    }
+
+    &__content {
+        display: grid;
+        gap: $spacing-xxl;
+        
+        @media (min-width: $breakpoint-lg) {
+            grid-template-columns: 1.2fr 1fr;
+            align-items: start;
+        }
+    }
+
+    &__media {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-lg;
+    }
+
+    &__image {
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba($primary-color, 0.1);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        &--main {
+            height: 400px;
+
+            @media (min-width: $breakpoint-md) {
+                height: 500px;
+            }
+        }
+    }
+
+    &__image-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-lg;
+
+        .about__image {
+            height: 200px;
+
+            @media (min-width: $breakpoint-md) {
+                height: 250px;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xl;
+    }
+
+    &__text {
+        h3 {
+            font-family: $font-primary;
+            font-size: 2rem;
+            color: $primary-color;
+            margin-bottom: $spacing-lg;
+        }
+
+        p {
+            color: $text-color;
+            line-height: 1.7;
+            margin-bottom: $spacing-md;
+            font-family: $font-secondary;
+        }
+    }
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: $spacing-lg;
+        padding-top: $spacing-lg;
+        border-top: 1px solid rgba($primary-color, 0.1);
+    }
+
+    &__stat {
+        text-align: center;
+
+        &-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: $accent-color;
+            font-family: $font-primary;
+            margin-bottom: $spacing-xs;
+        }
+
+        &-label {
+            font-family: $font-secondary;
+            color: $secondary-color;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+}

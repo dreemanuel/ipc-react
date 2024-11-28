@@ -1,0 +1,126 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.social-gallery {
+    padding: $spacing-xxl 0;
+    background-color: $background-dark;
+
+    &__header {
+        text-align: center;
+        margin-bottom: $spacing-xxl;
+
+        .section-title {
+            color: $light-text;
+            margin-bottom: $spacing-md;
+            
+            span {
+                color: $accent-color;
+            }
+        }
+
+        .section-subtitle {
+            color: rgba($light-text, 0.8);
+            font-family: $font-secondary;
+            font-size: 1.2rem;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        gap: $spacing-lg;
+        margin-bottom: $spacing-xxl;
+        
+        @media (min-width: $breakpoint-sm) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        @media (min-width: $breakpoint-lg) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__item {
+        position: relative;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        aspect-ratio: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+
+            .social-gallery__overlay {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($primary-color, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: $spacing-lg;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: center;
+
+        p {
+            color: $light-text;
+            font-family: $font-secondary;
+            margin-bottom: $spacing-lg;
+            line-height: 1.4;
+        }
+    }
+
+    &__link {
+        color: $light-text;
+        text-decoration: none;
+        font-family: $font-secondary;
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        padding: $spacing-xs $spacing-md;
+        border: 1px solid rgba($light-text, 0.3);
+        border-radius: $border-radius-sm;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba($light-text, 0.1);
+            border-color: $light-text;
+        }
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__cta {
+        text-align: center;
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: $spacing-sm;
+            padding: $spacing-md $spacing-xl;
+            
+            i {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

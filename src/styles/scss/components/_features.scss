@@ -1,0 +1,122 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.features {
+    padding: $spacing-xxl 0;
+    background-color: $background-light;
+
+    .section-title {
+        text-align: center;
+        margin-bottom: $spacing-lg;
+
+        span {
+            color: $accent-color;
+        }
+    }
+
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xxl;
+        margin-top: $spacing-xxl;
+    }
+}
+
+.feature-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    align-items: center;
+
+    @media (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    &--reverse {
+        direction: rtl;
+
+        .feature-item__content {
+            direction: ltr;
+        }
+
+        @media (max-width: $breakpoint-md) {
+            direction: ltr;
+        }
+    }
+
+    &__image {
+        position: relative;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+
+            .feature-item__overlay {
+                opacity: 0.2;
+            }
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, $primary-color, $secondary-color);
+        opacity: 0.3;
+        transition: opacity 0.3s ease;
+    }
+
+    &__content {
+        h3 {
+            font-family: $font-primary;
+            font-size: 1.8rem;
+            color: $primary-color;
+            margin-bottom: $spacing-md;
+        }
+
+        p {
+            font-family: $font-secondary;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: $text-color;
+            margin-bottom: $spacing-lg;
+            opacity: 0.9;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: $spacing-sm;
+            font-family: $font-secondary;
+            
+            @media (max-width: $breakpoint-md) {
+                justify-content: center;
+            }
+
+            i {
+                color: $accent-color;
+                margin-right: $spacing-sm;
+                font-size: 1rem;
+            }
+        }
+    }
+}

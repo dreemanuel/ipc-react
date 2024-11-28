@@ -1,0 +1,39 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Grid system
+.container {
+    @include container;
+}
+
+.grid {
+    @include grid;
+    
+    @include respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include respond-to(lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.grid-2 {
+    @include grid(1);
+    
+    @include respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.grid-4 {
+    @include grid(1);
+    
+    @include respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include respond-to(lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
