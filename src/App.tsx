@@ -17,11 +17,9 @@ function App() {
 
   return (
     <>
-      {/*<!-- Navigation -->*/}
       <Navbar />
 
       {/* Page routing */}
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -33,10 +31,7 @@ function App() {
         </Routes>
       </BrowserRouter> 
 
-
-      {/* <!-- Footer --> */}
       <Footer />
-
     </>
   );
 }
