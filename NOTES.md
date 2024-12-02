@@ -87,3 +87,12 @@ import imageName from './image/path.jpg'
 if the background image is imported as a variable:
 ```tsx
 style={{ backgroundImage: `url(${imageName})` }}
+```
+
+
+# Linking to another page in your website:
+
+add `import { Link } from 'react-router-dom` on the top line
+
+use the `<Link to=''></Link>` element, entering the **Route** (url append) into the `to=` attribute, in place of the usual `<a>` element used for linking to an external site.
+

@@ -1,5 +1,19 @@
 import React from 'react'
 import FeatureCard from '../ui/FeatureCard'
+import FarmerCocoa1 from '../../assets/farmer-cocoa1.jpg'
+import GreenhouseCocoa1 from '../../assets/greenhouse-cocoa1.jpg'
+import GlamorCocoa2 from '../../assets/glamor-cocoa2.jpg'
+
+const featureContent = [
+  {
+    featureImage: 1,
+    featureHeading: "x",
+    featureSubheading: "y",
+    featureText: "z",
+    featureList: []
+  },
+
+];
 
 const Features = () => {
   return (
@@ -19,9 +33,11 @@ const Features = () => {
 
             {/* <!-- Feature 1 --> */}
             <FeatureCard />
+            
             <div className="feature-item">
               <div className="feature-item__image">
-                <img src="assets/images/farmer-cocoa1.jpg" alt="Single-origin cacao beans" />
+                {/* <img src="assets/images/farmer-cocoa1.jpg" alt="Single-origin cacao beans" /> */}
+                <img src={FarmerCocoa1} alt="A cocoa farmer holding a cocoa fruit" />
                 <div className="feature-item__overlay"></div>
               </div>
               <div className="feature-item__content">
@@ -39,7 +55,8 @@ const Features = () => {
             <FeatureCard />
             <div className="feature-item feature-item--reverse">
               <div className="feature-item__image">
-                <img src="assets/images/greenhouse-cocoa1.jpg" alt="Premium processing" />
+                {/* <img src="assets/images/greenhouse-cocoa1.jpg" alt="Premium processing" /> */}
+                <img src={GreenhouseCocoa1} alt="Inside a cocoa farm greenhouse" />
                 <div className="feature-item__overlay"></div>
               </div>
               <div className="feature-item__content">
@@ -57,7 +74,8 @@ const Features = () => {
             <FeatureCard />
             <div className="feature-item">
               <div className="feature-item__image">
-                <img src="assets/images/glamor-cocoa2.jpg" alt="Quality certifications" />
+                {/* <img src="assets/images/glamor-cocoa2.jpg" alt="Quality certifications" /> */}
+                <img src={GlamorCocoa2} alt="Dried cocoa bens spread out" />
                 <div className="feature-item__overlay"></div>
               </div>
               <div className="feature-item__content">
