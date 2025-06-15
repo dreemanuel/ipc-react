@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
@@ -6,30 +5,31 @@ import CartPage from './pages/CartPage'
 import SignupPage from './pages/SignupPage'
 import ContactPage from './pages/ContactPage'
 import NotFoundPage from './pages/NotFoundPage'
-import Navbar from './components/layout/Navbar'
-import Footer from './components/layout/Footer'
+import RootLayout from './components/layout/RootLayout'
+import { CustomerTypeProvider, CustomerTypeIndicator } from './components/providers/CustomerTypeProvider'
+import ErrorBoundary from './components/common/ErrorBoundary'
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <>
-      <Navbar />
-
-      {/* Page routing */}
+    <ErrorBoundary>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/shop" element={<ProductsPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter> 
-
-      <Footer />
-    </>
+        <CustomerTypeProvider>
+          <Routes>
+            <Route path="/" element={<RootLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="shop" element={<ProductsPage />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="signup" element={<SignupPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+          {/* Development indicator - remove in production */}
+          <CustomerTypeIndicator />
+        </CustomerTypeProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
+
 export default App

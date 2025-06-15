@@ -277,10 +277,19 @@ p:last-child {
   width: calc(100% - 16px);
 }
 .nav__item.active a {
-  color: #D4AF37;
+  color: rgba(255, 255, 255, 0.7);
 }
 .nav__item.active a::after {
-  width: calc(100% - 16px);
+  width: 0;
+  background-color: transparent;
+}
+.nav__item.active a:hover {
+  color: #D4AF37 !important;
+}
+.nav__item.active a:hover::after {
+  width: calc(100% - 16px) !important;
+  background-color: #D4AF37 !important;
+  height: 2px;
 }
 .nav__toggle {
   display: none;

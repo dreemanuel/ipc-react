@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 const FinalCta = () => {
   return (
@@ -9,8 +9,8 @@ const FinalCta = () => {
             <h2>Ready to Experience Premium Indonesian Cacao?</h2>
             <p>Join the world's finest chocolatiers and confectioners who trust our premium cacao products</p>
             <div className="final-cta__buttons">
-              <a href="#contact" className="btn btn--primary btn--large">Request a Sample</a>
-              <a href="#products" className="btn btn--secondary btn--large">View Products</a>
+              <Link to="/contact" className="btn btn--primary btn--large">Request a Sample</Link>
+              <Link to="/shop" className="btn btn--secondary btn--large">View Products</Link>
             </div>
             <div className="final-cta__certifications">
               <div className="certification">

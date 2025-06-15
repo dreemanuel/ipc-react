@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -13,10 +13,10 @@ const Footer = () => {
                 <img src="assets/images/logo.png" alt="Indonesia Premium Cacao" className="footer__logo" />
                 <p>Delivering Indonesia's finest cacao beans to premium chocolate makers worldwide since 2010.</p>
                 <div className="footer__social">
-                  <a href="#" className="social-link"><i className="fab fa-instagram"></i></a>
-                  <a href="#" className="social-link"><i className="fab fa-linkedin"></i></a>
-                  <a href="#" className="social-link"><i className="fab fa-facebook"></i></a>
-                  <a href="#" className="social-link"><i className="fab fa-twitter"></i></a>
+                  <a href="https://instagram.com" className="social-link" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+                  <a href="https://linkedin.com" className="social-link" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://facebook.com" className="social-link" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                  <a href="https://twitter.com" className="social-link" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
                 </div>
               </div>
 
@@ -24,10 +24,10 @@ const Footer = () => {
               <div className="footer__column">
                 <h3>Quick Links</h3>
                 <ul className="footer__links">
-                  <li><a href="#about">About Us</a></li>
-                  <li><a href="#products">Our Products</a></li>
-                  <li><a href="#sustainability">Sustainability</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li><Link to="/#about">About Us</Link></li>
+                  <li><Link to="/shop">Our Products</Link></li>
+                  <li><Link to="/#about">Sustainability</Link></li>
+                  <li><Link to="/contact">Contact</Link></li>
                 </ul>
               </div>
 
@@ -35,10 +35,10 @@ const Footer = () => {
               <div className="footer__column">
                 <h3>Products</h3>
                 <ul className="footer__links">
-                  <li><a href="#products">Fermented Cacao Beans</a></li>
-                  <li><a href="#products">Natural Cocoa Powder</a></li>
-                  <li><a href="#products">Cocoa Mass</a></li>
-                  <li><a href="#products">Custom Solutions</a></li>
+                  <li><Link to="/shop">Fermented Cacao Beans</Link></li>
+                  <li><Link to="/shop">Natural Cocoa Powder</Link></li>
+                  <li><Link to="/shop">Cocoa Mass</Link></li>
+                  <li><Link to="/shop">Custom Solutions</Link></li>
                 </ul>
               </div>
 
@@ -69,8 +69,8 @@ const Footer = () => {
                 <p>&copy; 2023 Indonesia Premium Cacao. All rights reserved.</p>
               </div>
               <div className="footer__legal">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <Link to="/privacy">Privacy Policy</Link>
+                <Link to="/terms">Terms of Service</Link>
               </div>
             </div>
 

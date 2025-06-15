@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const BtnCtaSecondary = () => {
   return (
-    <Link to="/products" className="btn btn--secondary btn--secondary-light btn--large">View Products</Link>
+    <Link to="/shop" className="btn btn--secondary btn--secondary-light btn--large">View Products</Link>
   )
 }
 

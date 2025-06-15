@@ -1,6 +1,8 @@
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
 
+// Updated navigation styles
+
 .nav {
     position: fixed;
     top: 0;
@@ -87,8 +89,9 @@
                 font-size: 1rem;
                 font-weight: 500;
                 padding: $spacing-xs $spacing-sm;
-                transition: color $transition-base;
+                transition: all $transition-base;
                 display: block;
+                opacity: 1;
             }
 
             &:hover {
@@ -114,11 +117,25 @@
         &.active {
             a {
                 & {
-                    color: $accent-color;
+                    // Very subtle active state - just dimmed text, no underline
+                    color: rgba($light-text, 0.7); // Dimmed white text
+                    opacity: 1;
                 }
 
                 &::after {
-                    width: calc(100% - #{$spacing-sm * 2});
+                    width: 0; // NO underline in active state
+                    background-color: transparent;
+                }
+
+                // On hover while active, show full hover state
+                &:hover {
+                    color: $accent-color !important; // Force bright gold on hover
+                    
+                    &::after {
+                        width: calc(100% - #{$spacing-sm * 2}) !important; // Show underline on hover
+                        background-color: $accent-color !important;
+                        height: 2px; // Full thickness
+                    }
                 }
             }
         }

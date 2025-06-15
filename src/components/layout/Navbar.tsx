@@ -1,19 +1,35 @@
-import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
+  const location = useLocation()
+  
+  // Get current pathname
+  const currentPath = location.pathname
+  
+
   return (
     <>
       <nav className="nav">
 
         <div className="nav__container">
 
-          <a href="#" className="nav__logo">Indonesia <span>Premium</span> Cacao</a>
+          <Link to="/" className="nav__logo">Indonesia <span>Premium</span> Cacao</Link>
           <ul className="nav__menu">
-            <li className="nav__item active"><a href="#home">Home</a></li>
-            <li className="nav__item"><a href="#features">Features</a></li>
-            <li className="nav__item"><a href="#about">About</a></li>
-            <li className="nav__item"><a href="#products">Products</a></li>
-            <li className="nav__item"><a href="#contact">Contact</a></li>
+            <li className={currentPath === '/' ? 'nav__item active' : 'nav__item'}>
+              <Link to="/">Home</Link>
+            </li>
+            <li className={currentPath === '/shop' ? 'nav__item active' : 'nav__item'}>
+              <Link to="/shop">Shop</Link>
+            </li>
+            <li className="nav__item">
+              <Link to="/#about">About</Link>
+            </li>
+            <li className={currentPath === '/contact' ? 'nav__item active' : 'nav__item'}>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className={currentPath === '/cart' ? 'nav__item active' : 'nav__item'}>
+              <Link to="/cart">Cart</Link>
+            </li>
           </ul>
           <button className="nav__toggle">
             <i className="fas fa-bars"></i>

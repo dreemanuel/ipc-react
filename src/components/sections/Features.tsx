@@ -1,19 +1,7 @@
-import React from 'react'
 import FeatureCard from '../ui/FeatureCard'
 import FarmerCocoa1 from '../../assets/farmer-cocoa1.jpg'
 import GreenhouseCocoa1 from '../../assets/greenhouse-cocoa1.jpg'
 import GlamorCocoa2 from '../../assets/glamor-cocoa2.jpg'
-
-const featureContent = [
-  {
-    featureImage: 1,
-    featureHeading: "x",
-    featureSubheading: "y",
-    featureText: "z",
-    featureList: []
-  },
-
-];
 
 const Features = () => {
   return (
